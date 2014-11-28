@@ -1,0 +1,95 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "8efbdbbfcc8ed08946e57e2dfdebe7f8",
+    "packages": [
+        {
+            "name": "asgard/common",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asgardphp/common.git",
+                "reference": "dfb00b4642563cacfe47df44d934fae5c4728bf6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asgardphp/common/zipball/dfb00b4642563cacfe47df44d934fae5c4728bf6",
+                "reference": "dfb00b4642563cacfe47df44d934fae5c4728bf6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Asgard\\Common\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Hognerud",
+                    "email": "michel@hognerud.net"
+                }
+            ],
+            "time": "2014-09-09 09:56:38"
+        },
+        {
+            "name": "asgard/db",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asgardphp/db.git",
+                "reference": "7670daf42aa7fe867820b72a1253e91adb148603"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asgardphp/db/zipball/7670daf42aa7fe867820b72a1253e91adb148603",
+                "reference": "7670daf42aa7fe867820b72a1253e91adb148603",
+                "shasum": ""
+            },
+            "require": {
+                "asgard/common": "0.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Asgard\\Db\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Hognerud",
+                    "email": "michel@hognerud.net"
+                }
+            ],
+            "time": "2014-11-26 11:24:05"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "asgard/db": 20
+    },
+    "prefer-stable": false,
+    "platform": [],
+    "platform-dev": []
+}

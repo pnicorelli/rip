@@ -9,5 +9,7 @@
     "autoload": {
         "psr-4": {"rip\\": "src/", "": "app/"}
     },
-    "require": {}
+    "require": {
+      "asgard/db": "0.2.*@dev"
+    }
 }
