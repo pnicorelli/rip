@@ -2,9 +2,9 @@
 namespace rip;
 
 class Router{
-	
+
 	public function Router(){
-	
+
 	}
 
 	public static function dispatch(){
@@ -26,22 +26,29 @@ class Router{
 			$controllerClass = "\\" . $req["components"][0];
 			if ( class_exists( $controllerClass, true) ){
 				$obj = new $controllerClass();
-				$action = $req["method"];
+				$action = strtolower($req["method"]);
 				if( method_exists($obj, $action) ){
-					$res = $obj->$action($req);
+					try{
+						$res["_status"] = "200";
+						$res["_embed"] = $obj->$action($req);
+					} catch (\Exception $e){
+						$res["_status"] = "401";
+						$res["_embed"] = $e;
+					}
 				} else {
-					$res["status"] = "404";
-					$res["message"] = "Method not found!";
+					$res["_status"] = "404";
+					$res["_embed"] = ["message"=>"Method {$controllerClass}::{$action}() not implemented!"];
 				}
 			} else {
-					$res["status"] = "404";
-					$res["message"] = "Module {$controllerClass} not found!";
+					$res["_status"] = "404";
+					$res["_embed"] =  ["message"=>"Module {$controllerClass} not implemented!"];
 			}
 		} else {
-			$res["status"] = "404";
-			$res["message"] = "Default Route not found!";
+			$res["_status"] = "404";
+			$res["_embed"] = "Default Route not found!";
 		}
-		var_dump($res);
+
+		Response::send($res);
 
 	}
 }
