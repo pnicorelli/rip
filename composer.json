@@ -1,0 +1,13 @@
+{
+    "name": "willy/rip",
+    "authors": [
+        {
+            "name": "Paolo -Willy- Nicorelli",
+            "email": "p.nicorelli@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"rip\\": "src/", "": "routes/"}
+    },  
+    "require": {}
+}
