@@ -7,9 +7,9 @@
         }
     ],
     "autoload": {
-        "psr-4": {"rip\\": "src/", "": "app/"}
+        "psr-4": {"rip\\": "src/", "ripModel\\": "models/", "": "app/"}
     },
     "require": {
-      "asgard/db": "0.2.*@dev"
+		"catfan/medoo": "dev-master"
     }
 }

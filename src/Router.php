@@ -10,9 +10,17 @@ class Router{
 	public static function dispatch(){
 		$config = App::getConfig();
 
-		list($req["url"], $query) = explode("?", "/".str_replace( $config["main"]["baseurl"], "", $_SERVER["REQUEST_URI"]));
+		if( strrpos($_SERVER["REQUEST_URI"], "?") !== false){
+			list($req["url"], $query) = explode("?", "/".str_replace( $config["main"]["baseurl"], "", $_SERVER["REQUEST_URI"]));
+		} else {
+			$req["url"] = "/".str_replace( $config["main"]["baseurl"], "", $_SERVER["REQUEST_URI"]);
+			$query="";
+		}
+		
 		$req["components"] = array_values(array_filter(explode("/", $req["url"])));
-		$query_values = explode("&", $query);
+
+		$query_values = array_filter( explode("&", $query) );
+
 		foreach($query_values as $value){
 			list( $k, $v) = explode("=", $value);
 			$req["query"][$k] = $v;

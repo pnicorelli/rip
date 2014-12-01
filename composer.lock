@@ -4,71 +4,38 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8efbdbbfcc8ed08946e57e2dfdebe7f8",
+    "hash": "0661900a8a029d89bc25ea134b2639a9",
     "packages": [
         {
-            "name": "asgard/common",
-            "version": "v0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/asgardphp/common.git",
-                "reference": "dfb00b4642563cacfe47df44d934fae5c4728bf6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/asgardphp/common/zipball/dfb00b4642563cacfe47df44d934fae5c4728bf6",
-                "reference": "dfb00b4642563cacfe47df44d934fae5c4728bf6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Asgard\\Common\\": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michel Hognerud",
-                    "email": "michel@hognerud.net"
-                }
-            ],
-            "time": "2014-09-09 09:56:38"
-        },
-        {
-            "name": "asgard/db",
+            "name": "catfan/medoo",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/asgardphp/db.git",
-                "reference": "7670daf42aa7fe867820b72a1253e91adb148603"
+                "url": "https://github.com/catfan/Medoo.git",
+                "reference": "e489311409b18b06614d52a225d785419562de5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asgardphp/db/zipball/7670daf42aa7fe867820b72a1253e91adb148603",
-                "reference": "7670daf42aa7fe867820b72a1253e91adb148603",
+                "url": "https://api.github.com/repos/catfan/Medoo/zipball/e489311409b18b06614d52a225d785419562de5d",
+                "reference": "e489311409b18b06614d52a225d785419562de5d",
                 "shasum": ""
             },
             "require": {
-                "asgard/common": "0.*",
-                "php": ">=5.4.0"
+                "ext-pdo": "*",
+                "php": ">=5.1"
             },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.2-dev"
-                }
+            "suggest": {
+                "ext-pdo-mysql": "For MySQL or MariaDB databases",
+                "ext-pdo-pqsql": "For PostgreSQL databases",
+                "ext-pdo-sqlite": "For SQLite databases",
+                "ext-pdo_dblib": "For MSSQL databases on Liunx/UNIX platform",
+                "ext-pdo_sqlsrv": "For MSSQL databases on Windows platform"
             },
+            "type": "framework",
             "autoload": {
-                "psr-4": {
-                    "Asgard\\Db\\": "."
-                }
+                "files": [
+                    "medoo.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -76,18 +43,27 @@
             ],
             "authors": [
                 {
-                    "name": "Michel Hognerud",
-                    "email": "michel@hognerud.net"
+                    "name": "Angel Lai",
+                    "email": "angel.lai.cat@gmail.com"
                 }
             ],
-            "time": "2014-11-26 11:24:05"
+            "description": "The Lightest PHP database framework to accelerate development",
+            "homepage": "http://medoo.in",
+            "keywords": [
+                "database",
+                "mssql",
+                "mysql",
+                "sql",
+                "sqlite"
+            ],
+            "time": "2014-08-15 12:29:42"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "asgard/db": 20
+        "catfan/medoo": 20
     },
     "prefer-stable": false,
     "platform": [],
