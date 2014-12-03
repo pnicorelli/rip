@@ -5,7 +5,7 @@ class Intervyou extends \rip\Entity{
 		
 	/* TABLE FIELDS */
 	public $id;
-	public $name;
+	public $label;
 	
 	public function __construct(){
 		//parent::__construct( $table, $tableid);

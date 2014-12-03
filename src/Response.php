@@ -15,7 +15,7 @@ class Response{
 		header("Content-Type: application/json");
 		header("X-Powered-By: ".$config["main"]["appName"]." v".$config["main"]["appVersion"], true);
 
-    echo json_encode($res["_embed"], JSON_FORCE_OBJECT);
+		echo json_encode($res["_embed"], JSON_FORCE_OBJECT);
   }
 
 }

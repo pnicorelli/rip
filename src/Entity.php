@@ -17,22 +17,31 @@ class Entity{
 	
 	public function save(){
 		$data = $this->getProperty();
-		if( is_null($data[$this->_rip_tableid]) ){
+		if( !isset($data[ $this->_rip_tableid ]) || is_null($data[ $this->_rip_tableid ]) ){
 			//insert 
-			
+			echo "insert";
+			var_dump($data);
 			$res = $this->_rip_db->insert($this->_rip_table,  $data);
 		} else {
 			//update
-			$res = Db::query("UPDATE {$this->_rip_table} SET name='rocco' WHERE {$this->_rip_tableid} = {$prop[$this->_rip_tableid]} ");
+			echo "update";
+			$res = $this->_rip_db->update($this->_rip_table,  $data, [ $this->_rip_tableid => $data[ $this->_rip_tableid ] ]);
+			//$res = Db::query("UPDATE {$this->_rip_table} SET name='rocco' WHERE {$this->_rip_tableid} = {$prop[$this->_rip_tableid]} ");
 		}
-		var_dump($data);
+
 	}
 	
 	public function getProperty(){
-		$prop = get_object_vars	($this);
-		return array_filter( $prop, function( $item ){
-			 return (substr($item, 0, 5)==="_rip_" );
-		});
+		
+		$prop = [];
+		foreach( get_object_vars($this) as $key => $value){
+			if( is_string( $key)) {
+				if( substr($key, 0, 5)!=="_rip_" ){
+					$prop[$key] = $value;
+				}
+			}
+		}
+		return $prop;
 	}
 	
 	public function dump(){
