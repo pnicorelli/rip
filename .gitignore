@@ -3,12 +3,9 @@ composer.lock
 vendor/
 .htaccess
 app/*
-!app
+!app/.htaccess
 models/*
-!model
-!app
-models/*
-!models
+!models/.htaccess
 config/database.ini
 config/main.ini
 
