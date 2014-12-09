@@ -2,6 +2,10 @@
 namespace rip;
 
 class Entity{
+
+	/**
+	 * All the internal vars must have _rip_ prefix
+	 */
 	private $_rip_db;
 	private $_rip_table;
 	private $_rip_tableid;
@@ -14,11 +18,34 @@ class Entity{
 		$this->_rip_tableid = $tableid;
 		$this->_rip_db = new Db();
 	}
-	
+
+	/**
+	 * fetch a document and load
+	 * @param  [model id]
+	 * @return [boolean]
+	 */
+	public function load($id){
+		$fields = array_keys($this->getProperty());
+		$where = [ $this->_rip_tableid => $id];
+		$data = $this->_rip_db->get( $this->_rip_table, $fields, $where);
+
+		if( !empty($data) ){
+			foreach( $fields as $key ){
+				$this->$key = $data[$key];
+			}
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * if $this->[tableid] is set perform UPDATE. If not do INSERT.
+	 */
 	public function save(){
 		$data = $this->getProperty();
 		if( !isset($data[ $this->_rip_tableid ]) || is_null($data[ $this->_rip_tableid ]) ){
-			//insert 
+			//insert
 			echo "insert";
 			var_dump($data);
 			$res = $this->_rip_db->insert($this->_rip_table,  $data);
@@ -30,9 +57,12 @@ class Entity{
 		}
 
 	}
-	
+
+	/**
+	 * return array(): child's class property
+	 */
 	public function getProperty(){
-		
+
 		$prop = [];
 		foreach( get_object_vars($this) as $key => $value){
 			if( is_string( $key)) {
@@ -43,7 +73,7 @@ class Entity{
 		}
 		return $prop;
 	}
-	
+
 	public function dump(){
 			var_dump( $this );
 	}
