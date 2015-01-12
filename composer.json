@@ -1,15 +1,18 @@
 {
-    "name": "willy/rip",
-    "authors": [
-        {
-            "name": "Paolo -Willy- Nicorelli",
-            "email": "p.nicorelli@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {"rip\\": "src/", "ripModel\\": "models/", "": "app/"}
-    },
-    "require": {
-		"catfan/medoo": "dev-master"
+  "name": "pnicorelli/rip",
+  "description": "Rest In Php",
+  "require": {
+    "slim/slim": "~2.5",
+    "catfan/medoo": "dev-master"
+  },
+
+  "autoload": {
+    "psr-4": {"Rip\\": "lib/", "RipModel\\": "models/"}
+  },
+  "authors": [
+    {
+      "name": "Paolo -Willy- Nicorelli",
+      "email": "p.nicorelli@gmail.com"
     }
+  ]
 }

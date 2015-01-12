@@ -1,18 +1,18 @@
 <?php
 
-namespace rip;
+namespace Rip;
 
 class Db extends \medoo{
 
   public function __construct( ){
-    $config = App::getConfig("database");
+    $db_cfg = Rip::getConfig("database");
 
-	parent::__construct(array(
-		'database_type' => $config['driver'],
-		'database_name' => $config['database'],
-		'server' => $config['host'],
-		'username' => $config['user'],
-		'password' => $config['password'],
+	return parent::__construct(array(
+		'database_type' => $db_cfg['driver'],
+		'database_name' => $db_cfg['database'],
+		'server' => $db_cfg['host'],
+		'username' => $db_cfg['user'],
+		'password' => $db_cfg['password'],
 		'charset' => 'utf8',
 	));
   }
