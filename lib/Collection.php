@@ -1,5 +1,5 @@
 <?php
-namespace Rip;
+namespace IY;
 
 class Collection{
 	private $_iv_entity;
@@ -19,6 +19,11 @@ class Collection{
 			$select  ="*";
 		}
 		return $this->_iv_db->select($this->_iv_entity->getTable(),  $select, $where);
+	}
+
+	public function delete( $where ){
+
+		return $this->_iv_db->delete($this->_iv_entity->getTable(),  $where);
 	}
 
 }
